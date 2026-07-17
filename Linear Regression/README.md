@@ -16,13 +16,13 @@ Given a dataset
 | 2 | 5 |
 | 3 | 7 |
 | 4 | 9 |
-| 5 | 11|
+| 5 | 11 |
 
 learn the parameters of the model
 
-\[
-h_\theta(x)=\theta_0+\theta_1x
-\]
+```text
+hθ(x) = θ₀ + θ₁x
+```
 
 using **Gradient Descent**.
 
@@ -32,9 +32,9 @@ using **Gradient Descent**.
 
 The model predicts values using
 
-\[
-\hat{y}=X\theta
-\]
+```text
+ŷ = Xθ
+```
 
 where
 
@@ -48,13 +48,13 @@ where
 
 Instead of writing
 
-\[
-\theta_0+\theta_1x
-\]
+```text
+θ₀ + θ₁x
+```
 
 for every sample, the dataset is represented as
 
-```
+```text
 1  x₁
 1  x₂
 1  x₃
@@ -69,34 +69,29 @@ which allows every prediction to be computed using one matrix multiplication.
 
 The residual vector measures how far every prediction is from the actual value.
 
-\[
-e=X\theta-y
-\]
+```text
+e = Xθ − y
+```
 
 If
 
-```
+```text
 prediction = 6
 actual = 7
-```
-
-then
-
-```
 error = -1
 ```
 
-The residual vector contains these errors for every training example.
+then the residual vector contains these errors for every training example.
 
 ---
 
 ## Cost Function
 
-The algorithm minimizes the Sum of Squared Errors
+The algorithm minimizes the **Sum of Squared Errors**.
 
-\[
-J(\theta)=\frac12\sum (X\theta-y)^2
-\]
+```text
+J(θ) = ½ Σ(Xθ − y)²
+```
 
 The cost tells us **how wrong** the current model is.
 
@@ -108,9 +103,9 @@ Lower cost means better parameters.
 
 The gradient tells us how each parameter should change.
 
-\[
-\nabla J(\theta)=X^T(X\theta-y)
-\]
+```text
+∇J(θ) = Xᵀ(Xθ − y)
+```
 
 Instead of guessing new parameters, the gradient points in the direction of steepest increase.
 
@@ -122,13 +117,13 @@ Moving in the opposite direction decreases the cost.
 
 Parameters are updated using
 
-\[
-\theta:=\theta-\alpha\nabla J(\theta)
-\]
+```text
+θ ← θ − α∇J(θ)
+```
 
 where
 
-- α = learning rate
+- **α** = learning rate
 
 This process repeats until the cost stops changing significantly.
 
@@ -136,13 +131,13 @@ This process repeats until the cost stops changing significantly.
 
 # Algorithm
 
-1. Initialize θ with zeros
-2. Compute predictions
-3. Compute residuals
-4. Compute cost
-5. Compute gradient
-6. Update θ
-7. Repeat until convergence
+1. Initialize **θ** with zeros.
+2. Compute predictions.
+3. Compute the residual vector.
+4. Compute the cost.
+5. Compute the gradient.
+6. Update the parameters.
+7. Repeat until convergence.
 
 ---
 
@@ -166,7 +161,7 @@ theta = theta - learning_rate * gradient
 
 # Files
 
-```
+```text
 linear_regression/
 │
 ├── linear_regression.py
@@ -180,26 +175,40 @@ linear_regression/
 - Design Matrix
 - Bias Term
 - Linear Model
+- Matrix Multiplication
 - Vectorization
 - Residual Vector
 - Cost Function
 - Gradient
 - Gradient Descent
 - Convergence
-- Matrix Multiplication
 
 ---
 
 # Future Improvements
 
-- Multiple Linear Regression
-- Feature Scaling
-- Polynomial Regression
-- Learning Curves
-- L1/L2 Regularization
-- Mini-batch Gradient Descent
-- Stochastic Gradient Descent
+- [ ] Multiple Linear Regression
+- [ ] Feature Scaling
+- [ ] Polynomial Regression
+- [ ] Learning Curves
+- [ ] L1/L2 Regularization
+- [ ] Mini-batch Gradient Descent
+- [ ] Stochastic Gradient Descent
 
 ---
 
-This implementation is part of the **Machine Learning Foundations** repository, where every algorithm is derived from its mathematical foundations before being implemented in Python.
+# Connections
+
+While implementing this algorithm, I found that several concepts from different courses describe the same underlying mathematics:
+
+- Least Squares
+- Orthogonal Projection
+- Normal Equation
+- Linear Regression
+- Minimizing Squared Error
+
+These are different perspectives on the same optimization problem.
+
+---
+
+This implementation is part of the **Machine Learning Foundations** repository, where each algorithm is studied mathematically before being implemented from scratch in Python.
