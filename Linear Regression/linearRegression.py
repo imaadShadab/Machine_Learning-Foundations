@@ -32,13 +32,15 @@ def linear_regression(design_matrix, target_vector, learning_rate, max_iteration
         theta_params = theta_params - (learning_rate * gradient_vector) # refer equation 3 in notes
 
         last_cost = cost_J_theta
-        print(f'iter{i}- Error_vector: {residual_vector}')
-        print(f'iter{i}- gradient_vector: {gradient_vector}')
-        print(f'iter{i}- theta_params: {theta_params}')
-        print(f'iter{i}- Cost: {cost_J_theta}')
-        print("_____________________________________________________")
+    #     print(f'iter{i}- Error_vector: {residual_vector}')
+    #     print(f'iter{i}- gradient_vector: {gradient_vector}')
+    #     print(f'iter{i}- theta_params: {theta_params}')
+    #     print(f'iter{i}- Cost: {cost_J_theta}')
+    #     print("_____________________________________________________")
         
-    print("Final theta:", theta_params)
+    # print("Final theta:", theta_params)
+    return theta_params
     
     
-linear_regression(design_matrix_1, y, learning_rate_alpha, 1500)
+prediction = linear_regression(design_matrix_1, y, learning_rate_alpha,5000 )
+print(prediction)
