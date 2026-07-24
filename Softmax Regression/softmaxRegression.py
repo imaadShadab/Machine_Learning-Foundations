@@ -16,6 +16,13 @@ y1 = np.array([0, 0, 0, 1, 1, 1, 2, 2, 2]) # K (All classes, here K=3; {0,1,2})
 
 learning_alpha = 0.01
 
+def softmax(z):
+    scores_exp =  np.exp(z)
+    scores_exp_sum = np.sum(scores_exp, axis=1, keepdims=True)
+    probablities = scores_exp / scores_exp_sum
+    return probablities
+    
+
 def softmax_regression(x, y, learning_rate, max_iterations):
 
     # Number of training examples
@@ -36,13 +43,7 @@ def softmax_regression(x, y, learning_rate, max_iterations):
     for i in range(max_iterations):
         scores = design_matrix @ theta_matrix
 
-        # Numerator in the formula
-        scores_exp = np.exp(scores)
-
-        # Denominator in the formula
-        scores_exp_sum = np.sum(scores_exp, axis=1, keepdims=True)
-
-        probablities = scores_exp / scores_exp_sum
+        probablities = softmax(scores)
 
         residual_matrix = probablities - Y_outputMatrix
 
@@ -72,11 +73,7 @@ def predict(x, theta_matrix):
 
     scores = design_matrix @ theta_matrix
 
-    scores_exp = np.exp(scores)
-
-    scores_exp_sum = np.sum(scores_exp, axis=1, keepdims=True)
-
-    probabilities = scores_exp / scores_exp_sum
+    probabilities = softmax(scores)
 
     predictions = np.argmax(probabilities, axis=1)
 
