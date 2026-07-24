@@ -5,7 +5,7 @@ y = np.array([3, 5, 7, 9, 11])
 
 learning_rate_alpha = 0.01
 
-design_ones = np.ones(x.shape)
+design_ones = np.ones(x.shape[0])
 
 design_matrix_1 = np.column_stack((design_ones, x))
 

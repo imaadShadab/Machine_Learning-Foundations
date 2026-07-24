@@ -3,7 +3,7 @@ import numpy as np
 x = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 y = np.array([1.2, 1.8, 3.0, 4.5, 6.8, 6.5, 5.0, 4.0, 3.8, 4.2])
 
-design_matrix_1 = np.column_stack((np.ones(x.shape), x))
+design_matrix_1 = np.column_stack((np.ones(x.shape[0]), x))
 theta_params = np.zeros(design_matrix_1.shape[1])
 target_x = 4.5
 bandwidth_1 = 2

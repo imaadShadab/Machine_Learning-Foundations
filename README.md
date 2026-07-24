@@ -1,33 +1,38 @@
 # Machine Learning Foundations
 
-> Implementing machine learning algorithms from first principles using mathematics and Python.
+> Implementing machine learning algorithms from first principles using mathematics, NumPy, and Python.
 
 ## About
 
-This repository documents my journey of learning machine learning by implementing algorithms from scratch. The goal is not only to write working code, but to understand the mathematics behind every algorithm before implementing it.
+This repository documents my journey of learning machine learning by studying the mathematics behind algorithms and then implementing them from scratch.
 
-Rather than relying on machine learning frameworks, each implementation is built using **NumPy** and derived from concepts in:
+The goal is not simply to use machine learning libraries, but to understand what happens underneath them: how predictions are computed, how loss functions measure error, how gradients are formed, and how model parameters are learned.
+
+Most algorithms are implemented using **NumPy**, with **Matplotlib** used to visualize their behavior.
+
+The mathematical foundations come primarily from:
 
 - Linear Algebra
 - Calculus
 - Probability & Statistics
 - Optimization
 
-As I continue learning, this repository will grow with new algorithms, derivations, and implementations.
-
 ---
 
 ## Learning Philosophy
 
-For every algorithm, I aim to understand:
+For each algorithm, I aim to understand:
 
 - Mathematical intuition
-- Derivation
+- The role of each term in the model
+- Cost / objective functions
+- Optimization methods
+- Matrix and vector formulations
 - Implementation from scratch
-- Computational complexity
+- Visualization of model behavior
 - Strengths and limitations
 
-The emphasis is on understanding **why** an algorithm works, not just **how** to use it.
+The emphasis is on understanding **why the algorithm works and how the mathematics translates into code**.
 
 ---
 
@@ -35,21 +40,54 @@ The emphasis is on understanding **why** an algorithm works, not just **how** to
 
 ### Linear Regression
 - [x] Design Matrix
-- [x] Cost Function (Mean Squared Error)
+- [x] Mean Squared Error
 - [x] Batch Gradient Descent
 - [x] Normal Equation
 - [ ] Feature Scaling
 - [ ] Polynomial Regression
 
+### Locally Weighted Regression
+- [x] Gaussian Weight Function
+- [x] Weight Matrix
+- [x] Weighted Least Squares
+- [x] Normal Equation
+- [x] Local Prediction
+- [x] Visualization
+
 ### Logistic Regression
-- [ ] Sigmoid Function
-- [ ] Binary Classification
-- [ ] Cross-Entropy Loss
-- [ ] Gradient Descent
+- [x] Binary Classification
+- [x] Sigmoid Function
+- [x] Cross-Entropy Loss
+- [x] Gradient
+- [x] Batch Gradient Descent
+- [x] Decision Boundary
+- [ ] Newton's Method
+
+### Softmax Regression
+- [x] Multi-Class Classification
+- [x] Parameter Matrix
+- [x] Softmax Function
+- [x] One-Hot Encoding
+- [x] Multi-Class Cross-Entropy
+- [x] Gradient Descent
+- [x] Multi-Class Prediction
+- [x] Decision Region Visualization
+
+### Probability & Statistical Foundations
+- [x] Bernoulli Distribution
+- [x] Gaussian Distribution
+- [x] Expectation
+- [x] Variance and Standard Deviation
+- [x] Likelihood
+- [x] Log-Likelihood
+- [x] Maximum Likelihood Estimation
+- [x] Exponential Family — Conceptual Understanding
+- [x] Generalized Linear Models — Conceptual Understanding
 
 ### Neural Networks
 - [ ] Perceptron
 - [ ] Forward Propagation
+- [ ] Activation Functions
 - [ ] Backpropagation
 - [ ] Gradient Descent
 
@@ -65,24 +103,17 @@ The emphasis is on understanding **why** an algorithm works, not just **how** to
 
 ## Repository Structure
 
-```
-machine_learning_foundations/
+```text
+Machine_Learning-Foundations/
 │
 ├── linear_regression/
+├── locally_weighted_regression/
 ├── logistic_regression/
-├── neural_networks/
-├── decision_trees/
-├── clustering/
-├── utils/
+├── softmax_regression/
 └── README.md
 ```
 
-Each algorithm directory may contain:
-
-- Mathematical derivation
-- Python implementation
-- Example usage
-- Notes and observations
+Each implemented algorithm contains its own README explaining the mathematics, implementation, and visualization.
 
 ---
 
@@ -90,28 +121,59 @@ Each algorithm directory may contain:
 
 - Python
 - NumPy
+- Matplotlib
 
 Future additions may include:
 
-- Matplotlib
 - SciPy
+- PyTorch
 - Jupyter Notebooks
+
+---
+
+## Mathematical Foundations
+
+The implementations in this repository build on concepts including:
+
+**Linear Algebra**
+- Vectors and Matrices
+- Matrix Multiplication
+- Linear Systems
+- Vector Spaces
+- Orthogonality and Projections
+- Least Squares
+
+**Calculus & Optimization**
+- Derivatives
+- Partial Derivatives
+- Gradients
+- Gradient Descent
+- Newton's Method
+
+**Probability & Statistics**
+- Probability Distributions
+- Expectation
+- Variance
+- Likelihood
+- Maximum Likelihood Estimation
+- Exponential Family
 
 ---
 
 ## References
 
-Some of the resources I'm studying from include:
+Resources used while building this repository include:
 
-- Gilbert Strang — *Introduction to Linear Algebra*
-- MIT 18.06 Linear Algebra
-- Stanford CS229 (Machine Learning)
-- 3Blue1Brown — *Essence of Linear Algebra*
-- 3Blue1Brown — *Essence of Calculus*
-- 3Blue1Brown — *Differential Equations*
+- Stanford CS229 - Machine Learning
+- Gilbert Strang - *Introduction to Linear Algebra*
+- MIT 18.06 - Linear Algebra
+- 3Blue1Brown - *Essence of Linear Algebra*
+- 3Blue1Brown - *Essence of Calculus*
 
 ---
 
 ## Goal
 
-The long-term goal of this repository is to build a collection of machine learning algorithms implemented from first principles while developing a solid mathematical understanding of how they work.
+The long-term goal of this repository is to build a collection of machine learning algorithms from first principles while developing the mathematical intuition required to understand how modern machine learning models work internally.
+
+Rather than treating algorithms as black boxes, each implementation connects the underlying mathematics directly to working Python code.
