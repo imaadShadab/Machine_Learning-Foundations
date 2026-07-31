@@ -2,13 +2,15 @@
 
 > Implementing machine learning algorithms from first principles using mathematics, NumPy, and Python.
 
+---
+
 ## About
 
 This repository documents my journey of learning machine learning by studying the mathematics behind algorithms and then implementing them from scratch.
 
-The goal is not simply to use machine learning libraries, but to understand what happens underneath them: how predictions are computed, how loss functions measure error, how gradients are formed, and how model parameters are learned.
+The goal is not simply to use machine learning libraries, but to understand what happens underneath them: how predictions are computed, how loss functions measure error, how gradients are formed, and how models learn from data.
 
-Most algorithms are implemented using **NumPy**, with **Matplotlib** used to visualize their behavior.
+Every implementation is built using **NumPy**, with **Matplotlib** used to visualize learned models, decision boundaries, and algorithm behavior whenever appropriate.
 
 The mathematical foundations come primarily from:
 
@@ -28,11 +30,25 @@ For each algorithm, I aim to understand:
 - Cost / objective functions
 - Optimization methods
 - Matrix and vector formulations
+- Recursive algorithms (where applicable)
 - Implementation from scratch
 - Visualization of model behavior
 - Strengths and limitations
 
 The emphasis is on understanding **why the algorithm works and how the mathematics translates into code**.
+
+---
+
+## Implemented Algorithms
+
+| Algorithm | Status | Visualization |
+|-----------|:------:|:-------------:|
+| Linear Regression | ✅ | ✅ |
+| Locally Weighted Regression | ✅ | ✅ |
+| Logistic Regression | ✅ | ✅ |
+| Softmax Regression | ✅ | ✅ |
+| Bernoulli Naive Bayes | ✅ | ✅ |
+| Decision Tree | ✅ | ✅ |
 
 ---
 
@@ -77,12 +93,19 @@ The emphasis is on understanding **why the algorithm works and how the mathemati
 - [x] Bernoulli Distribution
 - [x] Gaussian Distribution
 - [x] Expectation
-- [x] Variance and Standard Deviation
+- [x] Variance
+- [x] Standard Deviation
 - [x] Likelihood
 - [x] Log-Likelihood
 - [x] Maximum Likelihood Estimation
+- [x] Bernoulli Naive Bayes
 - [x] Exponential Family — Conceptual Understanding
 - [x] Generalized Linear Models — Conceptual Understanding
+
+### Tree-Based Models
+- [x] Decision Trees
+- [ ] Random Forests
+- [ ] Gradient Boosted Trees
 
 ### Neural Networks
 - [ ] Perceptron
@@ -95,10 +118,6 @@ The emphasis is on understanding **why the algorithm works and how the mathemati
 - [ ] K-Means Clustering
 - [ ] Principal Component Analysis (PCA)
 
-### Tree-Based Models
-- [ ] Decision Trees
-- [ ] Random Forests
-
 ---
 
 ## Repository Structure
@@ -110,10 +129,12 @@ Machine_Learning-Foundations/
 ├── locally_weighted_regression/
 ├── logistic_regression/
 ├── softmax_regression/
+├── naive_bayes/
+├── decision_tree/
 └── README.md
 ```
 
-Each implemented algorithm contains its own README explaining the mathematics, implementation, and visualization.
+Each implemented algorithm contains its own README explaining the mathematical intuition, implementation details, and visualization.
 
 ---
 
@@ -135,7 +156,8 @@ Future additions may include:
 
 The implementations in this repository build on concepts including:
 
-**Linear Algebra**
+### Linear Algebra
+
 - Vectors and Matrices
 - Matrix Multiplication
 - Linear Systems
@@ -143,20 +165,31 @@ The implementations in this repository build on concepts including:
 - Orthogonality and Projections
 - Least Squares
 
-**Calculus & Optimization**
+### Calculus & Optimization
+
 - Derivatives
 - Partial Derivatives
 - Gradients
 - Gradient Descent
 - Newton's Method
 
-**Probability & Statistics**
+### Probability & Statistics
+
 - Probability Distributions
 - Expectation
 - Variance
+- Standard Deviation
 - Likelihood
+- Log-Likelihood
 - Maximum Likelihood Estimation
 - Exponential Family
+
+### Computer Science Concepts
+
+- Recursion
+- Binary Trees
+- Divide and Conquer
+- Greedy Algorithms
 
 ---
 
@@ -164,11 +197,11 @@ The implementations in this repository build on concepts including:
 
 Resources used while building this repository include:
 
-- Stanford CS229 - Machine Learning
-- Gilbert Strang - *Introduction to Linear Algebra*
-- MIT 18.06 - Linear Algebra
-- 3Blue1Brown - *Essence of Linear Algebra*
-- 3Blue1Brown - *Essence of Calculus*
+- Stanford CS229 – Machine Learning
+- Gilbert Strang – *Introduction to Linear Algebra*
+- MIT 18.06 – Linear Algebra
+- 3Blue1Brown – *Essence of Linear Algebra*
+- 3Blue1Brown – *Essence of Calculus*
 
 ---
 

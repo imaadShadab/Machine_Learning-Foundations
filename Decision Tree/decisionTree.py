@@ -1,117 +1,99 @@
 import numpy as np
 
-
 # ex: Height and Weight of an Animal
-x1 = np.array([
-    [2, 3],
-    [3, 4],
-    [4, 3],
-    [5, 6],
-    [6, 7],
-    [7, 8],
-    [8, 8],
-    [9, 10]
-])
+x1 = np.array([[2, 3], [3, 4], [4, 3], [5, 6], [6, 7], [7, 8], [8, 8], [9, 10]])
 
 # Lets assume class0 = cat, class1 = Dog
-y1 = np.array([
-    0,
-    0,
-    0,
-    0,
-    1,
-    1,
-    1,
-    1
-])
+y1 = np.array([0, 0, 0, 0, 1, 1, 1, 1])
+
 
 # Threshold = midpoint
 class Node:
-    
-    def __init__(self, feature=None, threshold=None,
-                 left=None, right=None, prediction=None):
+
+    def __init__(
+        self, feature=None, threshold=None, left=None, right=None, prediction=None
+    ):
         self.feature = feature
         self.threshold = threshold
         self.left = left
         self.right = right
         self.prediction = prediction
-        
+
 
 def entropy(y):
     # H denotes entropy
     H = 0
     m = len(y)
-    
+
     unique_classes = np.unique(y)
     for cls in unique_classes:
         class_count = np.sum(y == cls)
-    
+
         # p denotes probablity
         p = class_count / m
-        
+
         H += p * np.log2(p)
-    
+
     H = -(H)
     return H
+
 
 def split_dataset(x, y, feature, threshold):
     feature_values = x[:, feature]
     x_left = []
     y_left = []
     x_right = []
-    y_right = []  
+    y_right = []
     for value_index in range(len(feature_values)):
-        if feature_values[value_index]< threshold:
+        if feature_values[value_index] < threshold:
             x_left.append(x[value_index])
             y_left.append(y[value_index])
         else:
             x_right.append(x[value_index])
             y_right.append(y[value_index])
- 
+
     x_left = np.array(x_left)
     y_left = np.array(y_left)
     x_right = np.array(x_right)
-    y_right = np.array(y_right)           
-    
+    y_right = np.array(y_right)
+
     return x_left, y_left, x_right, y_right
-            
-    
+
 
 def information_gain(x, y):
-    
+
     parent_entropy = entropy(y)
-    best_info_gain = float('-inf')
+    best_info_gain = float("-inf")
     best_feature = None
     best_midpoint = None
-    
+
     for col in range(x.shape[1]):
         feature_values = np.unique(x[:, col])
         midpoints = []
-        
+
         for i in range(len(feature_values) - 1):
-            midpoints.append((feature_values[i] + feature_values[i+1]) / 2)
-        
-        
+            midpoints.append((feature_values[i] + feature_values[i + 1]) / 2)
+
         for mp in midpoints:
-            
+
             x_left, y_left, x_right, y_right = split_dataset(x, y, col, mp)
 
-            left_weight = len(x_left)/ len(x)
+            left_weight = len(x_left) / len(x)
             left_entropy = entropy(y_left)
             left_weighted_entropy = left_weight * left_entropy
-            
-            right_weight = len(x_right)/ len(x)
+
+            right_weight = len(x_right) / len(x)
             right_entropy = entropy(y_right)
             right_weighted_entropy = right_weight * right_entropy
-            
-            weighted_child_entropy  = left_weighted_entropy + right_weighted_entropy
+
+            weighted_child_entropy = left_weighted_entropy + right_weighted_entropy
             info_gain = parent_entropy - weighted_child_entropy
-            
-            if info_gain>best_info_gain:
+
+            if info_gain > best_info_gain:
                 best_info_gain = info_gain
                 best_midpoint = mp
                 best_feature = col
-    
+
     return best_info_gain, best_feature, best_midpoint
 
 
@@ -121,38 +103,81 @@ def majority(y):
     majority = values[max_index]
     return majority
 
+
 def build_tree(x, y, depth=0):
-    
+
     max_depth = 4
     min_samples_split = 2
-    
-    '''Stopping conditions'''
+
+    """Stopping conditions"""
     # 1. Pure Leaf reached
     unique_y = np.unique(y)
     if len(unique_y) == 1:
-            return Node(prediction=unique_y[0])
-        
+        return Node(prediction=unique_y[0])
+
     best_info_gain, best_feature, best_midpoint = information_gain(x, y)
-    
+
+    '''Commented out because this condition stopped the tree from further classiying elements deeper'''
     # 2. No improvement in information_gain
-    if best_info_gain <= 0:
-        
-        return Node(prediction = majority(y))
-    
+    # if best_info_gain <= 0:
+
+    #     return Node(prediction=majority(y))
+
     # 3. Max Depth of subtrees reached
     if depth >= max_depth:
-        return Node(prediction = majority(y))
-    
+        return Node(prediction=majority(y))
+
     # 4. There are only minimum samples left in dataset so we end before further splitting
     if len(x) < min_samples_split:
         return Node(prediction=majority(y))
-    
-    
+
     x_left, y_left, x_right, y_right = split_dataset(x, y, best_feature, best_midpoint)
-                
-    left_subtree = build_tree(x_left, y_left, depth+1)
-    right_subtree = build_tree(x_right, y_right, depth+1)
-    
+
+    left_subtree = build_tree(x_left, y_left, depth + 1)
+    right_subtree = build_tree(x_right, y_right, depth + 1)
+
     return Node(best_feature, best_midpoint, left_subtree, right_subtree)
-                
-print(build_tree(x1, y1).threshold)    
+
+
+""" THIS FUNCTION WAS GENERATED BY AI 
+AFTER FULL MANUAL IMPLEMENTATION OF THE MODEL AND PREDICT FUNCTION
+TO HELP VISUALIZE THE TREE."""
+# def print_tree(node, indent=""):
+#     if node.prediction is not None:
+#         print(indent + f"Predict {node.prediction}")
+#         return
+
+#     print(indent + f"Feature {node.feature} < {node.threshold}")
+
+#     print(indent + "├── Left:")
+#     print_tree(node.left, indent + "│   ")
+
+#     print(indent + "└── Right:")
+#     print_tree(node.right, indent + "    ")
+
+
+def predict(x_new, root):
+    while True:
+
+        if root.prediction != None:
+            return root.prediction
+
+        if x_new[root.feature] < root.threshold:
+            root = root.left
+        else:
+            root = root.right
+
+
+def main():
+    root_node = build_tree(x1, y1)
+    # print_tree(root_node)
+
+    x_new = [6, 5]
+    prediction = predict(x_new, root_node)
+
+    print("_________________________________________________________________")
+    print(f"{x_new} belongs to class {prediction}")
+
+
+if __name__ == "__main__":
+    main()
