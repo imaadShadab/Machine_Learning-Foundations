@@ -1,10 +1,23 @@
 import numpy as np
 
 # ex: Height and Weight of an Animal
-x1 = np.array([[2, 3], [3, 4], [4, 3], [5, 6], [6, 7], [7, 8], [8, 8], [9, 10]])
+x1 = np.array([
+    [2, 3], 
+    [3, 4], 
+    [4, 3], 
+    [5, 6], 
+    [6, 7], 
+    [7, 8], 
+    [8, 8], 
+    [9, 10],
+    [11, 12],
+    [12, 15], 
+    [17, 18], 
+    [8, 9]
+])
 
 # Lets assume class0 = cat, class1 = Dog
-y1 = np.array([0, 0, 0, 0, 1, 1, 1, 1])
+y1 = np.array([0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2])
 
 
 # Threshold = midpoint
@@ -120,8 +133,8 @@ def build_tree(x, y, depth=0):
     '''Commented out because this condition stopped the tree from further classiying elements deeper'''
     # 2. No improvement in information_gain
     # if best_info_gain <= 0:
-
     #     return Node(prediction=majority(y))
+
 
     # 3. Max Depth of subtrees reached
     if depth >= max_depth:
@@ -172,7 +185,7 @@ def main():
     root_node = build_tree(x1, y1)
     # print_tree(root_node)
 
-    x_new = [6, 5]
+    x_new = [14, 12]
     prediction = predict(x_new, root_node)
 
     print("_________________________________________________________________")
