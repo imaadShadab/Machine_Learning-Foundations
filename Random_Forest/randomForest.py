@@ -1,8 +1,7 @@
-'''RUN THIS COMMAND IN SHELL TO RUN THIS FILE    
-python -m Random_Forest.randomForest'''
-
+import sys
+from pathlib import Path
 import numpy as np
-
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 from Decision_Tree.decisionTree_OOP import DecisionTree
 
 # ex: Height and Weight of an Animal
