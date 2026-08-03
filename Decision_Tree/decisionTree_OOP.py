@@ -42,9 +42,7 @@ class DecisionTree:
         self.max_depth = 4
         self.min_samples_split = 2
         
-    def fit(self, x, y, depth = 0):
-        self.root = self.build_tree(x, y, depth)
-        
+
     def entropy(self, y):
         # H denotes entropy
         H = 0
@@ -85,14 +83,18 @@ class DecisionTree:
         return x_left, y_left, x_right, y_right
 
         
-    def information_gain(self, x, y):
+    def information_gain(self, x, y, feature_indices=None):
 
         parent_entropy = self.entropy(y)
         best_info_gain = float("-inf")
         best_feature = None
         best_midpoint = None
-
-        for col in range(x.shape[1]):
+        
+        if feature_indices is None:
+            feature_indices = range(x.shape[1])
+            
+            
+        for col in feature_indices:
             feature_values = np.unique(x[:, col])
             midpoints = []
 
@@ -128,23 +130,37 @@ class DecisionTree:
         max_index = np.argmax(counts)
         majority = values[max_index]
         return majority
-
-
+    
+    def random_feature_selection(self, x):
+            column_count = x.shape[1]
+            random_feature_count = round(np.sqrt(column_count))
+            random_feature_indices = np.random.choice(column_count, random_feature_count, replace=False)
+            random_features = x[:, random_feature_indices]
+            
+            
+            '''We return the indices rather than feature so later in information_gain we can easily map
+            the indices and iterate ober them'''
+            return random_feature_indices
         
-    def build_tree(self, x, y, depth=0):
+        
+    def build_tree(self, x, y, feature_indices=None, random_forest=False, depth=0):
         
         """Stopping conditions"""
         # 1. Pure Leaf reached
         unique_y = np.unique(y)
         if len(unique_y) == 1:
             return Node(prediction=unique_y[0])
+        
+        if random_forest is True:
+           feature_indices = self.random_feature_selection(x)
+            
 
-        best_info_gain, best_feature, best_midpoint = self.information_gain(x, y)
+        best_info_gain, best_feature, best_midpoint = self.information_gain(x, y, feature_indices)
 
         '''Commented out because this condition stopped the tree from further classiying elements deeper'''
         # 2. No improvement in information_gain
-        # if best_info_gain <= 0:
-        #     return Node(prediction=majority(y))
+        if best_info_gain <= 0:
+            return Node(prediction=self.majority(y))
 
 
         # 3. Max Depth of subtrees reached
@@ -157,10 +173,14 @@ class DecisionTree:
 
         x_left, y_left, x_right, y_right = self.split_dataset(x, y, best_feature, best_midpoint)
 
-        left_subtree = self.build_tree(x_left, y_left, depth + 1)
-        right_subtree = self.build_tree(x_right, y_right, depth + 1)
+        left_subtree = self.build_tree(x_left, y_left, feature_indices, random_forest, depth + 1)
+        right_subtree = self.build_tree(x_right, y_right, feature_indices, random_forest, depth + 1)
 
         return Node(best_feature, best_midpoint, left_subtree, right_subtree) 
+    
+    
+    def fit(self, x, y, feature_indices=None, random_forest = False,depth = 0):
+        self.root = self.build_tree(x, y, feature_indices, random_forest,depth)
     
     def predict(self, x_new):
         current = self.root
