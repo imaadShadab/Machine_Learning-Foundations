@@ -70,13 +70,12 @@ class RandomForest:
         print(values, counts)
         return majority
     
-        
-        
-            
+def main():
+    forest1 = RandomForest(n_trees=1000)
+    forest1.fit(x1, y1)
+    x = forest1.predict([5,1])
+    print(x)
 
 
-forest1 = RandomForest(n_trees=1000)
-forest1.fit(x1, y1)
-x = forest1.predict([5,1])
-print(x)
-
+if __name__ == "__main__":
+    main()
