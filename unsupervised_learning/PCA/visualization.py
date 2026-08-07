@@ -7,7 +7,7 @@ python -m Principal_Component_Analysis.visualization
 import matplotlib.pyplot as plt
 import numpy as np
 
-from pca import PCA
+from unsupervised_learning.PCA.pca import PCA
 
 
 x1 = np.array([

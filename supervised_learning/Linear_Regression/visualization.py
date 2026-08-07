@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from linearRegression import linear_regression
+from supervised_learning.Linear_Regression.linearRegression import linear_regression
 
 x = np.array([1, 2, 3, 4, 5])
 y = np.array([2, 5, 7, 8, 11])

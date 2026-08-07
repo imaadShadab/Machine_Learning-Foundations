@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from softmaxRegression import softmax_regression, predict
+from supervised_learning.Softmax_Regression.softmaxRegression import softmax_regression, predict
 
 
 x = np.array([

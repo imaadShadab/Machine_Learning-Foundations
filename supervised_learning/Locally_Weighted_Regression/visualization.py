@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from localWeightRegression import locally_weighted_regression
+from supervised_learning.Locally_Weighted_Regression.localWeightRegression import locally_weighted_regression
 
 x = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 y = np.array([1.2, 1.8, 3.0, 4.5, 6.8, 6.5, 5.0, 4.0, 3.8, 4.2])

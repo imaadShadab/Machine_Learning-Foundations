@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from decisionTree import build_tree
+from supervised_learning.Decision_Tree.decisionTree import build_tree
 
 # x1 = np.array(
 #     [

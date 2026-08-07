@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from randomForest import RandomForest
+from supervised_learning.Random_Forest.randomForest import RandomForest
 
 # Example dataset
 x1 = np.array([

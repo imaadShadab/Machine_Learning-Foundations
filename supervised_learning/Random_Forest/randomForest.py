@@ -2,7 +2,7 @@ import sys
 from pathlib import Path
 import numpy as np
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-from Decision_Tree.decisionTree_OOP import DecisionTree
+from supervised_learning.Decision_Tree.decisionTree_OOP import DecisionTree
 
 # ex: Height and Weight of an Animal
 x1 = np.array([

@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-from logisticRegression import logistic_regression, sigmoid
+from supervised_learning.Logistic_Regression.logisticRegression import logistic_regression, sigmoid
 
 
 x = np.array([1, 2, 3, 4, 5, 6, 7, 8])
