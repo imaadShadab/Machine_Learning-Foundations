@@ -39,16 +39,48 @@ The emphasis is on understanding **why the algorithm works and how the mathemati
 
 ---
 
+## Repository Roadmap
+
+The repository is organized to build machine learning concepts progressively.
+
+1. **Regression**
+   - Linear Regression
+   - Locally Weighted Regression
+   - Logistic Regression
+   - Softmax Regression
+
+2. **Probabilistic Learning**
+   - Bernoulli Naive Bayes
+
+3. **Tree-Based Learning**
+   - Decision Trees
+   - Random Forests
+   - Gradient Boosted Trees *(Coming Soon)*
+
+4. **Unsupervised Learning**
+   - K-Means Clustering
+   - Principal Component Analysis (PCA)
+
+5. **Neural Networks**
+   - Perceptron
+   - Feedforward Networks
+   - Backpropagation
+
+---
+
 ## Implemented Algorithms
 
-| Algorithm | Status | Visualization |
-|-----------|:------:|:-------------:|
-| Linear Regression | ✅ | ✅ |
-| Locally Weighted Regression | ✅ | ✅ |
-| Logistic Regression | ✅ | ✅ |
-| Softmax Regression | ✅ | ✅ |
-| Bernoulli Naive Bayes | ✅ | ✅ |
-| Decision Tree | ✅ | ✅ |
+| Algorithm                        | Status | Visualization |
+| -------------------------------- | :----: | :-----------: |
+| Linear Regression                |   ✅   |      ✅       |
+| Locally Weighted Regression      |   ✅   |      ✅       |
+| Logistic Regression              |   ✅   |      ✅       |
+| Softmax Regression               |   ✅   |      ✅       |
+| Bernoulli Naive Bayes            |   ✅   |      ✅       |
+| Decision Tree                    |   ✅   |      ✅       |
+| Random Forest                    |   ✅   |      ✅       |
+| K-Means Clustering               |   ✅   |      ✅       |
+| Principal Component Analysis (PCA) | ✅ |      ✅       |
 
 ---
 
@@ -102,9 +134,9 @@ The emphasis is on understanding **why the algorithm works and how the mathemati
 - [x] Exponential Family — Conceptual Understanding
 - [x] Generalized Linear Models — Conceptual Understanding
 
-### Tree-Based Models
+### Tree
 - [x] Decision Trees
-- [ ] Random Forests
+- [x] Random Forests
 - [ ] Gradient Boosted Trees
 
 ### Neural Networks
@@ -115,8 +147,8 @@ The emphasis is on understanding **why the algorithm works and how the mathemati
 - [ ] Gradient Descent
 
 ### Unsupervised Learning
-- [ ] K-Means Clustering
-- [ ] Principal Component Analysis (PCA)
+- [X] K-Means Clustering
+- [X] Principal Component Analysis (PCA)
 
 ---
 
@@ -125,12 +157,19 @@ The emphasis is on understanding **why the algorithm works and how the mathemati
 ```text
 Machine_Learning-Foundations/
 │
-├── linear_regression/
-├── locally_weighted_regression/
-├── logistic_regression/
-├── softmax_regression/
-├── naive_bayes/
-├── decision_tree/
+├── supervised_learning/
+│   ├── linear_regression/
+│   ├── locally_weighted_regression/
+│   ├── logistic_regression/
+│   ├── softmax_regression/
+│   ├── naive_bayes/
+│   ├── decision_tree/
+│   └── random_forest/
+│
+├── unsupervised_learning/
+│   ├── K-means_Clustering/
+│   └── PCA/
+│
 └── README.md
 ```
 
@@ -162,7 +201,12 @@ The implementations in this repository build on concepts including:
 - Matrix Multiplication
 - Linear Systems
 - Vector Spaces
-- Orthogonality and Projections
+- Orthogonality
+- Vector Projection
+- Covariance Matrices
+- Eigenvalues
+- Eigenvectors
+- Principal Components
 - Least Squares
 
 ### Calculus & Optimization
@@ -179,6 +223,7 @@ The implementations in this repository build on concepts including:
 - Expectation
 - Variance
 - Standard Deviation
+- Covariance
 - Likelihood
 - Log-Likelihood
 - Maximum Likelihood Estimation
@@ -207,6 +252,10 @@ Resources used while building this repository include:
 
 ## Goal
 
-The long-term goal of this repository is to build a collection of machine learning algorithms from first principles while developing the mathematical intuition required to understand how modern machine learning models work internally.
+## Goal
 
-Rather than treating algorithms as black boxes, each implementation connects the underlying mathematics directly to working Python code.
+The objective of this repository is to build machine learning algorithms from first principles while developing a deep mathematical understanding of how they work internally.
+
+Rather than relying on high-level libraries, every implementation begins with the underlying mathematics before translating each equation into NumPy code.
+
+By the end of the project, the repository will cover supervised learning, unsupervised learning, ensemble methods, and neural networks, forming a complete collection of foundational machine learning algorithms implemented from scratch.
