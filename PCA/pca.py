@@ -63,7 +63,10 @@ class PCA:
         x_new = X @ self.P_matrix
         return x_new
         
-        
-pca = PCA(2)
-
-print(pca.projection_matrix())
+def main():
+    pca = PCA(2)
+    pca.fit(x1)
+    print(pca.transform())
+    
+if __name__ == '__main__':
+    main()
