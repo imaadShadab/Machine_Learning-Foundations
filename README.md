@@ -81,6 +81,7 @@ The repository is organized to build machine learning concepts progressively.
 | Random Forest                    |   ✅   |      ✅       |
 | K-Means Clustering               |   ✅   |      ✅       |
 | Principal Component Analysis (PCA) | ✅ |      ✅       |
+| Gradient Boosting                |   ✅ |        ✅       |
 
 ---
 
@@ -137,7 +138,7 @@ The repository is organized to build machine learning concepts progressively.
 ### Tree
 - [x] Decision Trees
 - [x] Random Forests
-- [ ] Gradient Boosted Trees
+- [X] Gradient Boosted Trees
 
 ### Neural Networks
 - [ ] Perceptron
@@ -164,6 +165,7 @@ Machine_Learning-Foundations/
 │   ├── softmax_regression/
 │   ├── naive_bayes/
 │   ├── decision_tree/
+|   ├── gradient_boosting/
 │   └── random_forest/
 │
 ├── unsupervised_learning/
@@ -182,6 +184,7 @@ Each implemented algorithm contains its own README explaining the mathematical i
 - Python
 - NumPy
 - Matplotlib
+- sklearn
 
 Future additions may include:
 
@@ -246,7 +249,9 @@ Resources used while building this repository include:
 - Gilbert Strang – *Introduction to Linear Algebra*
 - MIT 18.06 – Linear Algebra
 - 3Blue1Brown – *Essence of Linear Algebra*
-- 3Blue1Brown – *Essence of Calculus*
+- 3Blue1Brown – *Essence of Calculus* 
+- 3Blue1Brown – *Deep Learning*
+
 
 ---
 
