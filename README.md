@@ -257,8 +257,6 @@ Resources used while building this repository include:
 
 ## Goal
 
-## Goal
-
 The objective of this repository is to build machine learning algorithms from first principles while developing a deep mathematical understanding of how they work internally.
 
 Rather than relying on high-level libraries, every implementation begins with the underlying mathematics before translating each equation into NumPy code.
