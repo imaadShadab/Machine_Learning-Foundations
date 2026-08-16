@@ -26,10 +26,10 @@ y1 = np.array([
 
 class RegressionNeuralNetwork:
     def __init__(self):
-        self.x = x1
-        self.y = y1
+        self.x = None
+        self.y = None
         self.epochs = 100
-        self.weights = np.zeros(self.x.shape[1])
+        self.weights = None
         self.bias = 0
         self.learning_rate = 0.001
         
@@ -58,7 +58,10 @@ class RegressionNeuralNetwork:
 
         return dW, db
     
-    def fit(self):
+    def fit(self, x, y):
+        self.x = x
+        self.y = y
+        self.weights = np.zeros(self.x.shape[1])
         for epoch in range(self.epochs):
 
             # Forward
@@ -81,7 +84,7 @@ class RegressionNeuralNetwork:
     
 rnn = RegressionNeuralNetwork()
 
-rnn.fit()
+rnn.fit(x1, y1)
 
 print("weights:", rnn.weights)
 print("bias:", rnn.bias)
