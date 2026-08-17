@@ -24,20 +24,21 @@ y1 = np.array([
 
 class NeuralNetwork:
     def __init__(self, neurons):
-        self.x = x1
-        self.y = y1
+        self.x = None
+        self.y = None
         self.neurons = neurons
-        self.weights = np.zeros((self.neurons, self.x.shape[1]))
+        self.weights = None
         self.bias = np.zeros(self.neurons)
-        self.output_weight = np.zeros((1, self.neurons))
+        self.output_weight = np.random.randn(1, self.neurons) * 0.1
         self.output_bias = np.zeros(1)
-        self.learning_rate = 0.001
+        self.learning_rate = 0.01
+        self.epoch = 100
         
     def relu(self, x):
         return np.maximum(0, x)
     
-    def forward_propogation(self):
-        z = (self.x @ self.weights.T) + self.bias
+    def forward_propogation(self, x):
+        z = (x @ self.weights.T) + self.bias
         a = self.relu(z)
         
         # Output layer
@@ -50,7 +51,7 @@ class NeuralNetwork:
     
     def back_propogation(self):
         
-        prediction, a, z = self.forward_propogation()
+        prediction, a, z = self.forward_propogation(self.x)
         # 1st we calculate dC/dy` (or) how does changing prediction changes the cost
         output_gradient = (prediction - self.y) / len(self.y)
         
@@ -63,7 +64,7 @@ class NeuralNetwork:
         dŷ/dz = 1
         dz/dw = a
         """
-        output_weight_gradient = output_gradient * 1 * a
+        # output_weight_gradient = output_gradient * 1 * a
         
         # Reshaping the output weight gradient to match the actual shape (1,3)
         output_weight_gradient = np.sum(output_gradient * a, axis=0).reshape(1, -1)
@@ -74,7 +75,7 @@ class NeuralNetwork:
         
         dC/db = dC/dŷ * dŷ/dz * dz/db
         """
-        output_bias_gradient = output_gradient * 1 * 1
+        # output_bias_gradient = output_gradient * 1 * 1
         output_bias_gradient = np.sum( output_gradient, axis=0)
                 
         """
@@ -178,7 +179,30 @@ class NeuralNetwork:
         self.output_weight -= self.learning_rate * output_weight_gradient
         self.output_bias -= self.learning_rate * output_bias_gradient
         
+    def fit(self, x, y, epoch = None):
+        self.x = x
+        self.y = y.reshape(-1, 1)
+        self.weights = np.random.randn(self.neurons, self.x.shape[1]) * 0.1
         
-nn = NeuralNetwork(3)
-p = nn.forward_propogation()
-print(nn.calculate_cost(p))
+        if epoch is None:
+            epoch = self.epoch
+            
+        for _ in range(epoch):
+            prediction, a, z = self.forward_propogation(self.x)
+            cost = self.calculate_cost(prediction)
+            self.gradient_descent()
+            # print(f"Epoch {_}: cost = {cost}")
+            
+    def predict(self, x_new):
+        prediction, a, z = self.forward_propogation(x_new)
+        return prediction
+    
+            
+def main():
+    nn = NeuralNetwork(3)
+    nn.fit(x1,y1, 700)
+    x_new = np.array([[1, 1]])
+    print(nn.predict(x_new))
+
+if __name__ == "__main__":
+    main()
