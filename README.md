@@ -6,13 +6,20 @@
 
 ## About
 
-This repository documents my journey of learning machine learning by studying the mathematics behind algorithms and then implementing them from scratch.
+This repository documents my journey of learning machine learning by studying the mathematics behind algorithms and implementing them from scratch.
 
-The goal is not simply to use machine learning libraries, but to understand what happens underneath them: how predictions are computed, how loss functions measure error, how gradients are formed, and how models learn from data.
+The goal is not simply to use machine learning libraries, but to understand what happens underneath them:
 
-Every implementation is built using **NumPy**, with **Matplotlib** used to visualize learned models, decision boundaries, and algorithm behavior whenever appropriate.
+- How predictions are computed
+- How objective and loss functions measure error
+- How gradients are derived
+- How optimization algorithms update parameters
+- How mathematical formulations translate into vectorized NumPy code
+- How different algorithms make different assumptions about data
 
-The mathematical foundations come primarily from:
+Every implementation is built primarily using **NumPy**, with **Matplotlib** used to visualize learned models, decision boundaries, dimensionality reduction, and algorithm behavior.
+
+The mathematical foundations behind the implementations include:
 
 - Linear Algebra
 - Calculus
@@ -26,68 +33,87 @@ The mathematical foundations come primarily from:
 For each algorithm, I aim to understand:
 
 - Mathematical intuition
-- The role of each term in the model
-- Cost / objective functions
-- Optimization methods
-- Matrix and vector formulations
-- Recursive algorithms (where applicable)
+- Model formulation
+- Role of each mathematical term
+- Objective / loss function
+- Optimization method
+- Matrix and vector formulation
+- Derivation of gradients where applicable
 - Implementation from scratch
 - Visualization of model behavior
 - Strengths and limitations
+- Computational considerations
 
-The emphasis is on understanding **why the algorithm works and how the mathematics translates into code**.
-
----
-
-## Repository Roadmap
-
-The repository is organized to build machine learning concepts progressively.
-
-1. **Regression**
-   - Linear Regression
-   - Locally Weighted Regression
-   - Logistic Regression
-   - Softmax Regression
-
-2. **Probabilistic Learning**
-   - Bernoulli Naive Bayes
-
-3. **Tree-Based Learning**
-   - Decision Trees
-   - Random Forests
-   - Gradient Boosted Trees *(Coming Soon)*
-
-4. **Unsupervised Learning**
-   - K-Means Clustering
-   - Principal Component Analysis (PCA)
-
-5. **Neural Networks**
-   - Perceptron
-   - Feedforward Networks
-   - Backpropagation
+The emphasis is on understanding **why an algorithm works**, not simply reproducing its implementation.
 
 ---
 
-## Implemented Algorithms
+# Repository Roadmap
 
-| Algorithm                        | Status | Visualization |
-| -------------------------------- | :----: | :-----------: |
-| Linear Regression                |   ✅   |      ✅       |
-| Locally Weighted Regression      |   ✅   |      ✅       |
-| Logistic Regression              |   ✅   |      ✅       |
-| Softmax Regression               |   ✅   |      ✅       |
-| Bernoulli Naive Bayes            |   ✅   |      ✅       |
-| Decision Tree                    |   ✅   |      ✅       |
-| Random Forest                    |   ✅   |      ✅       |
-| K-Means Clustering               |   ✅   |      ✅       |
-| Principal Component Analysis (PCA) | ✅ |      ✅       |
-| Gradient Boosting                |   ✅ |        ✅       |
+The repository progresses from fundamental statistical models toward neural networks.
+
+### 1. Regression
+- Linear Regression
+- Locally Weighted Regression
+- Logistic Regression
+- Softmax Regression
+
+### 2. Probabilistic Learning
+- Bernoulli Naive Bayes
+
+### 3. Tree-Based Learning
+- Decision Trees
+- Random Forests
+- Gradient Boosted Trees
+
+### 4. Unsupervised Learning
+- K-Means Clustering
+- Principal Component Analysis (PCA)
+
+### 5. Neural Networks
+- Perceptron
+- Forward Propagation
+- Activation Functions
+- Loss Functions
+- Backpropagation
+- Gradient Descent
+- Multilayer Neural Networks
+
+### 6. Future Deep Learning
+- Binary Classification Networks
+- Multiclass Classification Networks
+- Optimization Algorithms
+- Convolutional Neural Networks
+- Attention
+- Transformers
 
 ---
 
-## Current Progress
+# Implemented Algorithms
 
-### Linear Regression
+| Algorithm | Status | Visualization |
+|---|:---:|:---:|
+| Linear Regression | ✅ | ✅ |
+| Locally Weighted Regression | ✅ | ✅ |
+| Logistic Regression | ✅ | ✅ |
+| Softmax Regression | ✅ | ✅ |
+| Bernoulli Naive Bayes | ✅ | ✅ |
+| Decision Tree | ✅ | ✅ |
+| Random Forest | ✅ | ✅ |
+| Gradient Boosting | ✅ | ✅ |
+| K-Means Clustering | ✅ | ✅ |
+| Principal Component Analysis (PCA) | ✅ | ✅ |
+| Perceptron | ✅ | ✅ |
+| Feedforward Neural Network | ✅ | ✅ |
+| Backpropagation | ✅ | ✅ |
+| Multilayer Neural Network | ✅ | ✅ |
+
+---
+
+# Current Progress
+
+## Linear Regression
+
 - [x] Design Matrix
 - [x] Mean Squared Error
 - [x] Batch Gradient Descent
@@ -95,7 +121,10 @@ The repository is organized to build machine learning concepts progressively.
 - [ ] Feature Scaling
 - [ ] Polynomial Regression
 
-### Locally Weighted Regression
+---
+
+## Locally Weighted Regression
+
 - [x] Gaussian Weight Function
 - [x] Weight Matrix
 - [x] Weighted Least Squares
@@ -103,16 +132,22 @@ The repository is organized to build machine learning concepts progressively.
 - [x] Local Prediction
 - [x] Visualization
 
-### Logistic Regression
+---
+
+## Logistic Regression
+
 - [x] Binary Classification
 - [x] Sigmoid Function
 - [x] Cross-Entropy Loss
-- [x] Gradient
+- [x] Gradient Derivation
 - [x] Batch Gradient Descent
 - [x] Decision Boundary
 - [ ] Newton's Method
 
-### Softmax Regression
+---
+
+## Softmax Regression
+
 - [x] Multi-Class Classification
 - [x] Parameter Matrix
 - [x] Softmax Function
@@ -122,12 +157,16 @@ The repository is organized to build machine learning concepts progressively.
 - [x] Multi-Class Prediction
 - [x] Decision Region Visualization
 
-### Probability & Statistical Foundations
+---
+
+## Probability & Statistical Foundations
+
 - [x] Bernoulli Distribution
 - [x] Gaussian Distribution
 - [x] Expectation
 - [x] Variance
 - [x] Standard Deviation
+- [x] Covariance
 - [x] Likelihood
 - [x] Log-Likelihood
 - [x] Maximum Likelihood Estimation
@@ -135,130 +174,239 @@ The repository is organized to build machine learning concepts progressively.
 - [x] Exponential Family — Conceptual Understanding
 - [x] Generalized Linear Models — Conceptual Understanding
 
-### Tree
-- [x] Decision Trees
-- [x] Random Forests
-- [X] Gradient Boosted Trees
+---
 
-### Neural Networks
-- [ ] Perceptron
-- [ ] Forward Propagation
-- [ ] Activation Functions
-- [ ] Backpropagation
-- [ ] Gradient Descent
+## Tree-Based Learning
 
-### Unsupervised Learning
-- [X] K-Means Clustering
-- [X] Principal Component Analysis (PCA)
+### Decision Trees
+
+- [x] Recursive Tree Construction
+- [x] Feature / Threshold Selection
+- [x] Impurity Measures
+- [x] Recursive Splitting
+- [x] Leaf Nodes
+- [x] Prediction
+- [x] Visualization
+
+### Random Forests
+
+- [x] Bootstrap Sampling
+- [x] Random Feature Selection
+- [x] Decision Tree Ensemble
+- [x] Majority Voting
+- [x] Prediction
+- [x] Visualization
+
+### Gradient Boosting
+
+- [x] Sequential Tree Construction
+- [x] Residual / Error Fitting
+- [x] Learning Rate
+- [x] Ensemble Prediction
+- [x] Visualization
 
 ---
 
-## Repository Structure
+## Unsupervised Learning
 
-```text
-Machine_Learning-Foundations/
-│
-├── supervised_learning/
-│   ├── linear_regression/
-│   ├── locally_weighted_regression/
-│   ├── logistic_regression/
-│   ├── softmax_regression/
-│   ├── naive_bayes/
-│   ├── decision_tree/
-|   ├── gradient_boosting/
-│   └── random_forest/
-│
-├── unsupervised_learning/
-│   ├── K-means_Clustering/
-│   └── PCA/
-│
-└── README.md
-```
+### K-Means Clustering
 
-Each implemented algorithm contains its own README explaining the mathematical intuition, implementation details, and visualization.
+- [x] Centroid Initialization
+- [x] Distance Calculation
+- [x] Cluster Assignment
+- [x] Centroid Update
+- [x] Iterative Optimization
+- [x] Visualization
+
+### Principal Component Analysis
+
+- [x] Data Centering
+- [x] Covariance Matrix
+- [x] Eigenvalues
+- [x] Eigenvectors
+- [x] Principal Components
+- [x] Dimensionality Reduction
+- [x] Visualization
 
 ---
 
-## Technologies
+# Neural Networks
 
-- Python
-- NumPy
-- Matplotlib
-- sklearn
+The neural-network section focuses on understanding how neural networks are constructed and trained mathematically before using frameworks such as PyTorch.
 
-Future additions may include:
+### Perceptron
 
-- SciPy
-- PyTorch
-- Jupyter Notebooks
+- [x] Weighted Sum
+- [x] Bias
+- [x] Activation
+- [x] Prediction
+- [x] Weight Updates
+
+### Feedforward Neural Network
+
+- [x] Forward Propagation
+- [x] Linear Layers
+- [x] ReLU Activation
+- [x] Output Layer
+- [x] Mean Squared Error
+- [x] Gradient Descent
+
+### Backpropagation
+
+- [x] Chain Rule
+- [x] Output Gradients
+- [x] Hidden-Layer Gradients
+- [x] ReLU Derivative
+- [x] Weight Gradients
+- [x] Bias Gradients
+- [x] Parameter Updates
+
+### Multilayer Neural Network
+
+- [x] Multiple Hidden Neurons
+- [x] Matrix-Based Forward Propagation
+- [x] Matrix-Based Backpropagation
+- [x] ReLU Hidden Layers
+- [x] Linear Output Layer
+- [x] Gradient Descent
+- [x] Prediction
 
 ---
 
-## Mathematical Foundations
+# Mathematical Foundations
 
-The implementations in this repository build on concepts including:
+The implementations in this repository build on the following mathematical concepts.
 
-### Linear Algebra
+## Linear Algebra
 
-- Vectors and Matrices
+- Vectors
+- Matrices
 - Matrix Multiplication
 - Linear Systems
 - Vector Spaces
+- Linear Independence
+- Basis
+- Dimension
 - Orthogonality
 - Vector Projection
+- Least Squares
 - Covariance Matrices
 - Eigenvalues
 - Eigenvectors
 - Principal Components
-- Least Squares
 
-### Calculus & Optimization
+### Future
+
+- [ ] Singular Value Decomposition (SVD)
+- [ ] Positive Definite Matrices
+- [ ] Matrix Decompositions
+
+---
+
+## Calculus & Optimization
 
 - Derivatives
 - Partial Derivatives
+- Chain Rule
 - Gradients
 - Gradient Descent
+- Loss Functions
+- Optimization
 - Newton's Method
+- Mini-Batch / Stochastic Gradient Descent
+### Future
 
-### Probability & Statistics
+- [ ] Second Derivatives
+- [ ] Hessian Matrix
+- [ ] Newton's Method
+- [ ] Jacobians
+- [ ] Momentum
+- [ ] Adam
+
+---
+
+## Probability & Statistics
 
 - Probability Distributions
+- Bernoulli Distribution
+- Gaussian Distribution
 - Expectation
 - Variance
 - Standard Deviation
 - Covariance
+- Conditional Probability
 - Likelihood
 - Log-Likelihood
 - Maximum Likelihood Estimation
 - Exponential Family
+- Bayes' Theorem
 
-### Computer Science Concepts
+### Future
+
+- [ ] Bayes' Theorem
+- [ ] Multivariate Gaussian
+- [ ] MAP Estimation
+- [ ] Law of Large Numbers
+- [ ] Central Limit Theorem
+
+---
+
+## Computer Science Concepts
 
 - Recursion
 - Binary Trees
 - Divide and Conquer
 - Greedy Algorithms
+- Object-Oriented Programming
+- Vectorized Numerical Computation
 
 ---
 
-## References
+# Technologies
 
-Resources used while building this repository include:
+- Python
+- NumPy
+- Matplotlib
+- scikit-learn
 
-- Stanford CS229 – Machine Learning
-- Gilbert Strang – *Introduction to Linear Algebra*
-- MIT 18.06 – Linear Algebra
-- 3Blue1Brown – *Essence of Linear Algebra*
-- 3Blue1Brown – *Essence of Calculus* 
-- 3Blue1Brown – *Deep Learning*
+### Planned
 
+- SciPy
+- Jupyter
+- PyTorch
 
 ---
 
-## Goal
+# References
 
-The objective of this repository is to build machine learning algorithms from first principles while developing a deep mathematical understanding of how they work internally.
+The main learning resources used throughout this repository include:
 
-Rather than relying on high-level libraries, every implementation begins with the underlying mathematics before translating each equation into NumPy code.
+- Stanford CS229 — Machine Learning
+- Gilbert Strang — Linear Algebra
+- MIT 18.06 — Linear Algebra
+- 3Blue1Brown — Essence of Linear Algebra
+- 3Blue1Brown — Essence of Calculus
+- 3Blue1Brown — Neural Networks
+- StatQuest — Statistics, Probability, and Machine Learning
 
-By the end of the project, the repository will cover supervised learning, unsupervised learning, ensemble methods, and neural networks, forming a complete collection of foundational machine learning algorithms implemented from scratch.
+---
+
+# Current Focus
+
+The classical machine learning foundations of this repository are largely complete.
+
+The current focus is **neural networks and the mathematics behind deep learning**.
+
+The immediate progression is:
+
+```text
+
+PyTorch
+        ↓
+Deep Learning
+        ↓
+CNNs
+        ↓
+Attention
+        ↓
+Transformers
