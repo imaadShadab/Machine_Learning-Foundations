@@ -391,22 +391,3 @@ The main learning resources used throughout this repository include:
 
 ---
 
-# Current Focus
-
-The classical machine learning foundations of this repository are largely complete.
-
-The current focus is **neural networks and the mathematics behind deep learning**.
-
-The immediate progression is:
-
-```text
-
-PyTorch
-        ↓
-Deep Learning
-        ↓
-CNNs
-        ↓
-Attention
-        ↓
-Transformers
