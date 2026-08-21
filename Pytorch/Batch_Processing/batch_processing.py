@@ -211,7 +211,7 @@ x_new = torch.tensor([[1, 1]], dtype=torch.float32)
 
 model.eval()
 
-with torch.no_grad():
+with torch.inference_mode():
     prediction = model(x_new)
 
 print(f"Prediction: {prediction}")
