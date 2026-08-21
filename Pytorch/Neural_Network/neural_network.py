@@ -1,6 +1,7 @@
 import torch
 from torch import nn
 
+
 x1 = torch.tensor([
     [1, 1],
     [1, 2],
