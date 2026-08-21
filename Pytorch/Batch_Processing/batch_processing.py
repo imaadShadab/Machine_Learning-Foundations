@@ -147,7 +147,7 @@ def evaluate(model, dataloader, cost_function):
     total_loss = 0
 
 # Tells pytorch to not store gradients
-    with torch.no_grad():
+    with torch.inference_mode():
 
         for x_batch, y_batch in dataloader:
 
