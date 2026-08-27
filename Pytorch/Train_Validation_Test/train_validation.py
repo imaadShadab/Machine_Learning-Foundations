@@ -179,3 +179,11 @@ with torch.inference_mode():
     prediction = neural_network(x_new)
 
 print(f"Prediction: {prediction}")
+
+
+# print("Train set indices:", train_set.indices) 
+# print("Val set indices:", val_set.indices)
+# print("Train set items:", [dataset[i] for i in train_set.indices]) 
+# print("Val set items:", [dataset[i] for i in val_set.indices])
+
+
